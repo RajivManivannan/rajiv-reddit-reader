@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">RedditReader</string>
+    <string name="app_name">Reddit Reader</string>
+    <string name="action_settings">Settings</string>
+    <string name="reader_comments">\u0020comments\u0020\u0020</string>
+    <string name="reader_open_brace">"("</string>
+    <string name="reader_close_brace">)</string>
 </resources>

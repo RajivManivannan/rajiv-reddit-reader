@@ -6,16 +6,16 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by rajiv on 12/04/16.
  */
-public class ReaderModel {
+public class Children {
 
     @SerializedName("data")
     @Expose
-    private Data data;
+    private ReaderDetail data;
 
     /**
      * @return The data
      */
-    public Data getData() {
+    public ReaderDetail getData() {
         return data;
     }
 

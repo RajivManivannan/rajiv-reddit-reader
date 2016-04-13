@@ -3,7 +3,18 @@ package com.tarkalabs.rajiv.redditreader.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Data_ {
+/**
+ * Created by rajiv on 12/04/16.
+ */
+public class ReaderDetail {
+
+    @SerializedName("id")
+    @Expose
+    private String id;
+
+    @SerializedName("title")
+    @Expose
+    private String title;
 
     @SerializedName("domain")
     @Expose
@@ -13,14 +24,10 @@ public class Data_ {
     @Expose
     private String subreddit;
 
-
-    @SerializedName("id")
-    @Expose
-    private String id;
-
     @SerializedName("author")
     @Expose
     private String author;
+
     @SerializedName("score")
     @Expose
     private Integer score;
@@ -32,21 +39,16 @@ public class Data_ {
     @Expose
     private String thumbnail;
 
-
     @SerializedName("url")
     @Expose
     private String url;
-
-    @SerializedName("title")
-    @Expose
-    private String title;
 
 
     public String getDomain() {
         return domain;
     }
 
-    public String getSubreddit() {
+    public String getSubReddit() {
         return subreddit;
     }
 

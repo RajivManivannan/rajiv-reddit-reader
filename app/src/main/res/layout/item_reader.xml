@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/item_margin"
-    android:orientation="vertical">
-
+    android:background="?android:attr/selectableItemBackground">
     <TextView
         android:id="@+id/reader_title_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/item_text_margin" />
-
+        android:layout_margin="@dimen/item_text_margin"
+        android:layout_toStartOf="@+id/reader_thumbnail_img"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/colorTitleText" />
     <TextView
         android:id="@+id/reader_domain_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/reader_title_tv"
-        android:layout_margin="@dimen/item_text_margin" />
-
+        android:layout_margin="@dimen/item_text_margin"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorSubTitle1" />
     <TextView
-        android:id="@+id/reader_sub_reddit_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/reader_domain_tv"
-        android:layout_margin="@dimen/item_text_margin" />
-
-    <TextView
-        android:id="@+id/reader_number_comments_tv"
+        android:id="@+id/reader_number_comments_and_subreddit_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/reader_sub_reddit_tv"
-        android:layout_margin="@dimen/item_text_margin" />
+        android:layout_below="@+id/reader_domain_tv"
+        android:layout_margin="@dimen/item_text_margin"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorSubTitle2" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/reader_thumbnail_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/item_image_margin"
+        android:src="@drawable/ic_placeholder" />
+</RelativeLayout>

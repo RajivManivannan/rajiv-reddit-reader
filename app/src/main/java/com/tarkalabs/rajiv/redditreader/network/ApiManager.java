@@ -9,7 +9,7 @@ import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
 
 /**
- * Created by vagmi on 12/04/16.
+ * Created by rajiv on 12/04/16.
  */
 public class ApiManager {
 
@@ -17,7 +17,7 @@ public class ApiManager {
     private static String API_URL = "https://www.reddit.com/";
 
     /**
-     * ApiService with using GSON Converter
+     * ApiService using GSON Converter and OkHttpClient
      *
      * @return ApiService
      */
@@ -27,7 +27,7 @@ public class ApiManager {
                 .setEndpoint(API_URL) // API Endpoint url
                 .setClient(new OkClient(new OkHttpClient())) // Http client -OkHttpClient
                 .setConverter(new GsonConverter(gson)) // Gson response converter
-//                .setLogLevel(RestAdapter.LogLevel.FULL)// To enable log.
+                // .setLogLevel(RestAdapter.LogLevel.FULL)// To enable log.
                 .build()
                 .create(ApiService.class);
         return apiService;
