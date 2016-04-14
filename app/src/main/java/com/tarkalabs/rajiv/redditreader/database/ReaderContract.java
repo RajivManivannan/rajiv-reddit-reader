@@ -3,7 +3,7 @@ package com.tarkalabs.rajiv.redditreader.database;
 import android.provider.BaseColumns;
 
 /**
- * Created by Rajiv M <rajivroczzz@gmail.com> on 13/04/16.
+ * Created by Rajiv M  on 13/04/16.
  */
 public class ReaderContract {
 

@@ -7,11 +7,13 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 
+import com.tarkalabs.rajiv.redditreader.R;
 import com.tarkalabs.rajiv.redditreader.database.DatabaseHandler;
 import com.tarkalabs.rajiv.redditreader.model.Children;
 import com.tarkalabs.rajiv.redditreader.model.ReaderModel;
 import com.tarkalabs.rajiv.redditreader.network.ApiManager;
 import com.tarkalabs.rajiv.redditreader.network.ApiService;
+import com.tarkalabs.rajiv.redditreader.utils.NetworkUtils;
 import com.tarkalabs.rajiv.redditreader.view.activity.HomeView;
 
 import java.util.List;
@@ -36,8 +38,11 @@ public class HomePresenter implements LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     public void fetchData() {
-        if (homeView != null)
+        if (homeView != null) {
+            homeView.showListView();
             homeView.showProgress();
+        }
+
         ApiManager apiManager = new ApiManager();
         ApiService apiService = apiManager.getApiManager();
         apiService.getReaderCollection(new Callback<ReaderModel>() {
@@ -51,8 +56,10 @@ public class HomePresenter implements LoaderManager.LoaderCallbacks<Cursor> {
 
             @Override
             public void failure(RetrofitError error) {
-                if (homeView != null)
+                if (homeView != null) {
                     homeView.hideProgress();
+                    homeView.showMessage(R.string.cannot_connect_right_now);
+                }
             }
         });
     }
@@ -60,7 +67,6 @@ public class HomePresenter implements LoaderManager.LoaderCallbacks<Cursor> {
     public void onDestroy() {
         homeView = null;
     }
-
 
     private void insertData(List<Children> childrenList) {
         //Clear existing data
@@ -70,7 +76,6 @@ public class HomePresenter implements LoaderManager.LoaderCallbacks<Cursor> {
         }
         homeView.refreshLoader(this);
     }
-
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -84,8 +89,13 @@ public class HomePresenter implements LoaderManager.LoaderCallbacks<Cursor> {
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        if (data.getColumnCount() != 0 && homeView != null)
-            homeView.updateData(data);
+        if (data.getCount() != 0) {
+            if (homeView != null)
+                homeView.updateData(data);
+        } else {
+            if (!NetworkUtils.isConnected(context))
+                homeView.noInternet();
+        }
     }
 
     @Override

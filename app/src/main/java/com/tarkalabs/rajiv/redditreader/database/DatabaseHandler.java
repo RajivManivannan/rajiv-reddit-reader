@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.tarkalabs.rajiv.redditreader.database.ReaderContract.ReaderTable;
 import com.tarkalabs.rajiv.redditreader.model.ReaderDetail;
@@ -14,13 +13,15 @@ import com.tarkalabs.rajiv.redditreader.model.ReaderDetail;
  * Created by Rajiv M on 13/04/16.
  */
 public class DatabaseHandler extends SQLiteOpenHelper {
+
     static final String DATABASE_NAME = "reader_db";
     static final int DATABASE_VERSION = 1;
+
     private static DatabaseHandler databaseHandler;
     private static SQLiteDatabase readableDatabase;
     private static SQLiteDatabase writableDatabase;
+
     private static Context context;
-    private String TAG = DatabaseHandler.class.getSimpleName();
 
     /**
      * Instantiates a new DB helper.
@@ -57,7 +58,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 ReaderTable.COLUMN_NO_COMMENTS + " TEXT," +
                 ReaderTable.COLUMN_THUMBNAIL + " TEXT," +
                 ReaderTable.COLUMN_URL + " TEXT" + ")";
-        Log.i(TAG, createQuery);
         db.execSQL(createQuery);
     }
 

@@ -2,10 +2,15 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#b1afaf</color>
+
+    <color name="windowBackground">#dcdcdc</color>
+    <color name="accentTranslucent">#c5d6f5</color>
+
     <color name="colorTitleText">#0000FF</color>
     <color name="colorSubTitle1">#727272</color>
     <color name="colorSubTitle2">#5C6065</color>
 
+    <color name="colorLightGreen">#96ab44</color>
 
 </resources>

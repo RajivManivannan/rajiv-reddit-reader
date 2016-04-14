@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Reddit Reader</string>
-    <string name="action_settings">Settings</string>
+
+    <!-- Reddit Reader Item -->
     <string name="reader_comments">\u0020comments\u0020\u0020</string>
     <string name="reader_open_brace">"("</string>
     <string name="reader_close_brace">)</string>
+
+    <!-- No internet layout -->
+    <string name="no_internet_connection">No Internet connection</string>
+    <string name="try_again">Try again</string>
+    <string name="cannot_connect_right_now">Can\'t connect right now.</string>
+    <string name="retry">RETRY</string>
+
 </resources>

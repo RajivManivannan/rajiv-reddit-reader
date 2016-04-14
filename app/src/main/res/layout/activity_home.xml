@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -25,14 +26,21 @@
         android:id="@+id/home_swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@android:color/white"
+        android:visibility="visible">
 
         <ListView
             android:id="@+id/home_reader_list_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/white"
             tools:listitem="@layout/item_reader" />
     </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include
+        android:id="@+id/no_internet_layout"
+        layout="@layout/layout_no_internet" />
 
 
 </android.support.design.widget.CoordinatorLayout>

@@ -12,10 +12,17 @@ public interface HomeView {
 
     void hideProgress();
 
+    void showMessage(int resId);
+
+    void noInternet();
+
+    void showListView();
+
     void updateData(Cursor cursor);
 
     void init(LoaderManager.LoaderCallbacks callback);
 
     void refreshLoader(LoaderManager.LoaderCallbacks callback);
+
 
 }
